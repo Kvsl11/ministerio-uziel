@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ministério Uziel - Força de Deus</title>
+    <meta name="description" content="Site oficial do Ministério Uziel. Conheça nossa história, nossa música e nossa missão de louvar a Deus.">
+    
+    <link rel="icon" href="3.png" type="image/png">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Anton&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome (for icons) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    
+    <script>
+        // Updated Tailwind configuration
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'sans': ['Poppins', 'sans-serif'],
+                        'anton': ['Anton', 'sans-serif'],
+                    },
+                    colors: {
+                        'brand': {
+                            'blue': '#29aae2',
+                            'dark-blue': '#2397cf',
+                            'text': '#334155', // slate-700
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* General styling for smooth scrolling and layout */
+        html { scroll-behavior: smooth; }
+        body { display: flex; flex-direction: column; min-height: 100vh; }
+        main { flex-grow: 1; }
+
+        /* Header transition styles */
+        #header { transition: all 0.3s ease-in-out; }
+        .header-scrolled {
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+        }
+        .header-scrolled .logo-text { font-size: 1.8rem; } /* Slightly smaller on scroll */
+
+        /* Parallax background effect */
+        .parallax-bg {
+            background-image: url('2.jpg');
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        /* Animation classes for elements revealed on scroll */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Mobile menu transition */
+        #mobile-menu { transition: transform 0.3s ease-in-out; }
+    </style>
+</head>
+<body class="bg-white text-brand-text font-sans">
+
+    <!-- Header -->
+    <header id="header" class="py-4 px-6 fixed w-full z-50 top-0">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="#home" class="flex items-center gap-4">
+                <h1 class="logo-text text-3xl md:text-4xl font-bold font-anton text-white tracking-wider transition-all duration-300">UZIEL</h1>
+            </a>
+            
+            <!-- Desktop Navigation -->
+            <nav class="hidden lg:flex items-center gap-6">
+                <a href="#about" class="desktop-nav-link font-medium text-slate-200 hover:text-white transition-colors duration-300">Sobre</a>
+                <a href="#music" class="desktop-nav-link font-medium text-slate-200 hover:text-white transition-colors duration-300">Música</a>
+                <a href="#journey" class="desktop-nav-link font-medium text-slate-200 hover:text-white transition-colors duration-300">Jornada</a>
+                <a href="#members" class="desktop-nav-link font-medium text-slate-200 hover:text-white transition-colors duration-300">Integrantes</a>
+                <a href="#contact" class="bg-brand-blue text-white font-semibold px-5 py-2 rounded-full hover:bg-brand-dark-blue transition-all shadow-md hover:shadow-lg hover:scale-105">Contato</a>
+            </nav>
+            
+            <!-- Mobile Menu Button -->
+            <div class="lg:hidden">
+                <button id="mobile-menu-button" class="mobile-menu-icon text-white transition-colors duration-300 w-10 h-10">
+                    <i class="fas fa-bars fa-lg"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu" class="fixed inset-0 bg-white/95 backdrop-blur-md z-40 transform -translate-x-full lg:hidden">
+        <nav class="flex flex-col items-center justify-center h-full gap-8">
+            <a href="#home" class="mobile-nav-link text-3xl font-semibold text-slate-700">Início</a>
+            <a href="#about" class="mobile-nav-link text-3xl font-semibold text-slate-700">Sobre</a>
+            <a href="#music" class="mobile-nav-link text-3xl font-semibold text-slate-700">Música</a>
+            <a href="#journey" class="mobile-nav-link text-3xl font-semibold text-slate-700">Jornada</a>
+            <a href="#members" class="mobile-nav-link text-3xl font-semibold text-slate-700">Integrantes</a>
+            <a href="#contact" class="mobile-nav-link mt-4 bg-brand-blue text-white font-semibold px-8 py-3 rounded-full text-xl">Contato</a>
+        </nav>
+        <button id="close-mobile-menu" class="absolute top-6 right-6 text-brand-text text-3xl p-2">
+            <i class="fas fa-times"></i>
+        </button>
+    </div>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="home" class="h-screen bg-cover bg-center flex items-center justify-center text-white relative" style="background-image: url('1.jpg');">
+            <div class="absolute inset-0 bg-black/60"></div>
+            <div class="text-center z-10 p-4 reveal">
+                <h2 class="text-5xl md:text-7xl font-bold" style="text-shadow: 2px 2px 4px rgba(0,0,0,0.5);">Ministério Uziel</h2>
+                <p class="text-xl md:text-2xl mt-4 text-slate-200" style="text-shadow: 1px 1px 3px rgba(0,0,0,0.5);">Levando a palavra de Deus através da música</p>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="py-20 md:py-28 bg-white">
+            <div class="container mx-auto px-6">
+                <div class="relative flex flex-col md:flex-row items-center justify-center reveal">
+                    <div class="md:w-1/2 lg:w-7/12 md:absolute md:left-0 md:pr-10 z-10 mb-8 md:mb-0">
+                        <img src="4.jpg" alt="Ministério Uziel no estúdio" class="rounded-xl shadow-2xl w-full h-auto object-cover" onerror="this.onerror=null;this.src='https://placehold.co/600x400/ccc/333?text=Imagem+Indispon%C3%ADvel';">
+                    </div>
+                    <div class="relative bg-white p-8 md:p-12 md:pl-6 lg:pl-16 rounded-xl shadow-2xl w-full md:w-3/4 lg:w-7/12 md:ml-auto">
+                        <div class="md:pl-[min(45%,_100px)] lg:pl-[min(40%,_150px)]">
+                            <h2 class="text-3xl md:text-4xl font-bold text-brand-blue mb-4">Sobre Nós</h2>
+                            <p class="text-lg text-slate-600 leading-relaxed mb-4">
+                                Somos um grupo de amigos dedicados a compartilhar a mensagem de fé através da música católica. Nosso nome, <strong>Uziel</strong>, significa "Força de Deus" e reflete nossa total confiança no Senhor.
+                            </p>
+                            <p class="text-lg text-slate-600 leading-relaxed">
+                                Buscamos criar momentos de adoração que toquem corações e inspirem vidas. Cada apresentação é uma oportunidade para sentir a presença de Deus de forma autêntica e pessoal.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Music Section -->
+        <section id="music" class="py-20 md:py-28 bg-white">
+            <div class="container mx-auto px-6 text-center reveal">
+                <h2 class="text-3xl md:text-4xl font-bold text-brand-blue mb-4">Nossa Música</h2>
+                <p class="text-xl text-slate-500 mb-12 max-w-3xl mx-auto">Canções que nascem da nossa fé e da nossa história.</p>
+                <div class="flex flex-col md:flex-row items-stretch justify-center gap-8">
+                    <!-- Single Card -->
+                    <div class="bg-white p-8 rounded-xl shadow-xl w-full md:w-2/5 flex flex-col transform hover:-translate-y-2 transition-transform duration-300 border border-slate-200">
+                        <img src="7.jpg" alt="Capa do single O Céu é o Meu Lugar" class="w-full rounded-lg mb-6 border border-slate-200" onerror="this.onerror=null;this.src='https://placehold.co/400x400/ccc/333?text=Capa+do+Single';">
+                        <h3 class="text-2xl font-bold text-brand-text mb-1">Single Lançado</h3>
+                        <p class="text-brand-blue font-semibold text-xl mb-4">O Céu é o Meu Lugar</p>
+                        <p class="text-slate-500 text-base mb-6 flex-grow">Nosso primeiro single, lançado em 17 de Fevereiro de 2023. Uma canção que expressa nossa busca e nossa esperança. Composição: Amanda Palhano.</p>
+                        <div class="flex space-x-4 mt-auto">
+                            <a href="https://open.spotify.com/track/2zIfKSvOW9rOd07rp0RZwe?si=CJZeCFpVTjSGnLuJde89Yw" target="_blank" class="text-slate-400 hover:text-green-500 transition-colors transform hover:scale-110" title="Ouvir no Spotify"><i class="fab fa-spotify fa-2x"></i></a>
+                            <a href="https://youtu.be/Ex5_7BNRn9k?si=viZnzd6fwqQ0PXwH" target="_blank" class="text-slate-400 hover:text-red-500 transition-colors transform hover:scale-110" title="Assistir no YouTube"><i class="fab fa-youtube fa-2x"></i></a>
+                        </div>
+                    </div>
+                    <!-- Album Card -->
+                    <div class="bg-white p-8 rounded-xl shadow-xl w-full md:w-2/5 flex flex-col transform hover:-translate-y-2 transition-transform duration-300 border border-slate-200">
+                        <div class="w-full relative aspect-square rounded-lg mb-6 flex items-center justify-center p-4 border border-slate-200 overflow-hidden">
+                            <img src="8.png" alt="Logo Uziel" class="absolute inset-0 h-full w-full object-contain" onerror="this.onerror=null;this.src='https://placehold.co/400x400/ccc/333?text=Logo+Uziel';">
+                        </div>
+                        <h3 class="text-2xl font-bold text-brand-text mb-1">Próximo Lançamento</h3>
+                        <p class="text-brand-blue font-semibold text-xl mb-4">Novo Álbum em Breve</p>
+                        <p class="text-slate-500 text-base mb-6 flex-grow">Estamos no estúdio, preparando com muito carinho novas canções para abençoar sua vida. Fique ligado para mais novidades!</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Journey Section -->
+        <section id="journey" class="py-20 md:py-28 bg-white">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16 reveal">
+                    <h2 class="text-3xl md:text-4xl font-bold text-brand-blue mb-4">Nossa Jornada</h2>
+                    <p class="text-xl text-slate-500 max-w-3xl mx-auto">Cada passo, uma nota na nossa canção de fé.</p>
+                </div>
+                
+                <!-- Timeline Item 1 -->
+                <div class="flex flex-col md:flex-row items-center gap-10 mb-20 reveal">
+                    <div class="md:w-1/2">
+                        <img src="5.jpg" alt="Ministério na Jornada Diocesana da Juventude" class="rounded-xl shadow-xl w-full h-auto object-cover" onerror="this.onerror=null;this.src='https://placehold.co/600x400/ccc/333?text=Jornada+1';">
+                    </div>
+                    <div class="md:w-1/2">
+                        <h3 class="text-2xl font-bold text-brand-dark-blue mb-3">O Começo como Ministério Ágape</h3>
+                        <p class="text-slate-600 text-base leading-relaxed">Nossa história começou no final de 2019, inspirada em uma visão de fé no Acampamento Ágape. Como Ministério Ágape, demos nossos primeiros passos, movidos pelo desejo de espalhar esperança e espiritualidade. Aos poucos, expandimos nossa atuação, levando nossa música para missas e eventos, como a Jornada Diocesana da Juventude.</p>
+                    </div>
+                </div>
+
+                <!-- Timeline Item 2 -->
+                <div class="flex flex-col md:flex-row-reverse items-center gap-10 mb-20 reveal">
+                    <div class="md:w-1/2">
+                        <img src="6.jpg" alt="Ministério em momento de ensaio" class="rounded-xl shadow-xl w-full h-auto object-cover" onerror="this.onerror=null;this.src='https://placehold.co/600x400/ccc/333?text=Jornada+2';">
+                    </div>
+                    <div class="md:w-1/2">
+                        <h3 class="text-2xl font-bold text-brand-dark-blue mb-3">Crescimento e Novos Dons</h3>
+                        <p class="text-slate-600 text-base leading-relaxed">Em 2020, o grupo experimentou uma expansão significativa com a chegada de novos membros que trouxeram suas habilidades e dons únicos. A expertise técnica de Alexandre em audiovisual, por exemplo, elevou nossas produções. Este período fortaleceu nossas bases e ampliou nossa influência dentro da Paróquia de São Pedro Apóstolo e além.</p>
+                    </div>
+                </div>
+
+                <!-- Timeline Item 3 -->
+                <div class="flex flex-col md:flex-row items-center gap-10 reveal">
+                    <div class="md:w-1/2">
+                        <img src="10.jpg" alt="Ministério com uma fã" class="rounded-xl shadow-xl w-full h-auto object-cover" onerror="this.onerror=null;this.src='https://placehold.co/600x400/ccc/333?text=Jornada+3';">
+                    </div>
+                    <div class="md:w-1/2">
+                        <h3 class="text-2xl font-bold text-brand-dark-blue mb-3">A Identidade Uziel</h3>
+                        <p class="text-slate-600 text-base leading-relaxed">Em 2022, sentimos a necessidade de renovação e adotamos o nome <strong>Uziel</strong>. A mudança refletiu nosso crescimento e o desejo de ter uma identidade que representasse a "Força de Deus" em nossa jornada. Hoje, somos um farol de fé e inspiração para a comunidade, conectando-nos com as pessoas através de cada canção.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Mission & Vision Section with Parallax -->
+        <section id="mission" class="py-24 md:py-40 parallax-bg relative">
+            <div class="absolute inset-0 bg-black/60"></div>
+            <div class="container mx-auto px-6 text-center relative z-10 reveal">
+                <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Missão e Visão</h2>
+                <p class="text-xl text-slate-200 mb-8 max-w-3xl mx-auto">Ser um canal de bênçãos, inspiração e adoração.</p>
+                <div class="max-w-3xl mx-auto text-lg text-white leading-relaxed text-center space-y-4 bg-black/30 p-8 rounded-xl backdrop-blur-sm shadow-xl">
+                    <p>Nossa missão é levar a palavra de Deus através da música, criando uma atmosfera de louvor e adoração onde quer que estejamos. Acreditamos que a música tem o poder de tocar corações e transformar vidas. Por isso, dedicamos nosso tempo e esforços para criar apresentações que não só sejam musicalmente excelentes, mas também espiritualmente edificantes.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Members Section -->
+        <section id="members" class="py-20 md:py-28 bg-white">
+            <div class="container mx-auto px-6 reveal">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold text-brand-blue mb-4">Nossos Integrantes</h2>
+                    <p class="text-xl text-slate-500">A força por trás da nossa música.</p>
+                </div>
+                <div class="max-w-5xl mx-auto flex flex-col md:flex-row items-center gap-10">
+                    <div class="md:w-1/2">
+                        <img src="9.jpg" alt="Integrantes do Ministério Uziel" class="rounded-xl shadow-xl w-full h-auto object-cover" onerror="this.onerror=null;this.src='https://placehold.co/600x400/ccc/333?text=Integrantes';">
+                    </div>
+                    <div class="md:w-1/2 text-slate-600 text-lg">
+                        <p class="mb-4">Cada membro do Ministério Uziel traz um dom único para o nosso som e nossa missão. Juntos, formamos uma família unida pela fé e pela música.</p>
+                        <ul class="list-disc list-inside space-y-2 text-base">
+                            <li>Junior Cavalcante</li>
+                            <li>Kaio Vinicius</li>
+                            <li>Alexandre Mandelli</li>
+                            <li>Willian Falavina</li>
+                            <li>Karla Vanessa</li>
+                            <li>Ana Carolina</li>
+                            <li>Camila Falavina</li>
+                            <li>Mel Buzzo</li>
+                            <li>Júlio Falavina</li>
+                            <li>Ênio Henrique</li>
+                        </ul>
+                        <p class="mt-6 text-sm text-slate-500">Agradecemos também a todos que fizeram parte da nossa jornada, como João Alexandre, Oniedison, José Rubinho, Jaqueline e Taynara.</p>
+                        <p class="mt-2 text-sm text-brand-blue font-semibold">Um agradecimento especial também aos talentosos músicos Leo Bonin e Felipe Lopes, que estão sempre conosco.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="py-20 md:py-28 bg-white">
+            <div class="container mx-auto px-6 text-center reveal">
+                <h2 class="text-3xl md:text-4xl font-bold text-brand-blue mb-4">Siga-nos</h2>
+                <p class="text-xl text-slate-500 mb-12">Acompanhe nossa jornada e novidades nas redes sociais.</p>
+                <div class="flex justify-center items-center space-x-6 md:space-x-8">
+                    <a href="https://open.spotify.com/user/31g7w3m744kda4o4ql5cyzvq3zba" target="_blank" class="text-slate-400 hover:text-green-500 transition-colors duration-300"><i class="fab fa-spotify fa-3x"></i></a>
+                    <a href="https://www.instagram.com/oministeriouziel?igsh=MmVha2dyNm9rOW9j" target="_blank" class="text-slate-400 hover:text-pink-500 transition-colors duration-300"><i class="fab fa-instagram fa-3x"></i></a>
+                    <a href="https://youtube.com/@ministeriouziel?si=k1t63Kqr67h3Xm5E" target="_blank" class="text-slate-400 hover:text-red-600 transition-colors duration-300"><i class="fab fa-youtube fa-3x"></i></a>
+                    <a href="https://www.facebook.com/share/1AWxqDPciq/" target="_blank" class="text-slate-400 hover:text-blue-600 transition-colors duration-300"><i class="fab fa-facebook fa-3x"></i></a>
+                    <a href="https://www.tiktok.com/@ministeriouziel?_t=8nrksX0puQI&_r=1" target="_blank" class="text-slate-400 hover:text-black transition-colors duration-300"><i class="fab fa-tiktok fa-3x"></i></a>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <!-- Footer -->
+    <footer class="bg-white py-8 border-t border-slate-200">
+        <div class="container mx-auto px-6 text-center text-slate-500">
+            <p>&copy; 2025 Ministério Uziel. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="back-to-top" class="fixed bottom-6 right-6 bg-brand-blue text-white w-12 h-12 rounded-full shadow-lg hover:bg-brand-dark-blue transition-all duration-300 focus:outline-none hidden z-40 flex items-center justify-center">
+        <i class="fas fa-arrow-up text-xl"></i>
+    </button>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const header = document.getElementById('header');
+            const backToTopButton = document.getElementById('back-to-top');
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const closeMobileMenuButton = document.getElementById('close-mobile-menu');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+            const revealElements = document.querySelectorAll('.reveal');
+
+            // Function to handle header style on scroll
+            const handleHeaderScroll = () => {
+                if (!header) return;
+                const scrolled = window.scrollY > 50;
+                header.classList.toggle('header-scrolled', scrolled);
+                header.classList.toggle('bg-white/90', scrolled);
+                
+                header.querySelector('.logo-text').classList.toggle('text-white', !scrolled);
+                header.querySelector('.logo-text').classList.toggle('text-brand-blue', scrolled);
+
+                header.querySelector('.mobile-menu-icon')?.classList.toggle('text-white', !scrolled);
+                header.querySelector('.mobile-menu-icon')?.classList.toggle('text-brand-text', scrolled);
+
+                header.querySelectorAll('.desktop-nav-link').forEach(link => {
+                    link.classList.toggle('text-slate-200', !scrolled);
+                    link.classList.toggle('hover:text-white', !scrolled);
+                    link.classList.toggle('text-slate-600', scrolled);
+                    link.classList.toggle('hover:text-brand-blue', scrolled);
+                });
+            };
+
+            // Function to handle back-to-top button visibility
+            const toggleBackToTopButton = () => {
+                if (backToTopButton) {
+                    backToTopButton.classList.toggle('hidden', window.scrollY < 300);
+                }
+            };
+
+            // Function to handle reveal animations on scroll
+            const revealOnScroll = () => {
+                const windowHeight = window.innerHeight;
+                revealElements.forEach(el => {
+                    const elementTop = el.getBoundingClientRect().top;
+                    if (elementTop < windowHeight - 100) {
+                        el.classList.add('visible');
+                    }
+                });
+            };
+
+            // Mobile menu toggle functions
+            const openMenu = () => mobileMenu?.classList.remove('-translate-x-full');
+            const closeMenu = () => mobileMenu?.classList.add('-translate-x-full');
+
+            // Attach event listeners
+            window.addEventListener('scroll', () => {
+                handleHeaderScroll();
+                toggleBackToTopButton();
+                revealOnScroll();
+            });
+
+            backToTopButton?.addEventListener('click', () => {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+
+            mobileMenuButton?.addEventListener('click', openMenu);
+            closeMobileMenuButton?.addEventListener('click', closeMenu);
+            mobileNavLinks.forEach(link => link.addEventListener('click', closeMenu));
+
+            // Initial checks on page load
+            handleHeaderScroll();
+            toggleBackToTopButton();
+            revealOnScroll();
+        });
+    </script>
+</body>
+</html>
