@@ -51,16 +51,22 @@
     body { display: flex; flex-direction: column; min-height: 100vh; }
     main { flex-grow: 1; }
 
-        /* Custom animation for slow spin (for disc placeholder) */
-        @keyframes spin-slow {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
-        }
-        .animate-spin-slow {
+    /* NOVO: Sombras customizadas com a cor da marca (blue) para padronizar o visual dos cards */
+    /* REMOVIDA A CLASSE PERMANENTE. AGORA A CLASSE ABAIXO SÓ DEFINE O ESTADO HOVER. */
+    .shadow-blue-hover-strong:hover { /* Aplica a sombra azul forte APENAS no hover */
+        box-shadow: 0 10px 25px -3px rgba(41, 170, 226, 0.5), 0 4px 10px -2px rgba(41, 170, 226, 0.25);
+    }
+
+    /* Custom animation for slow spin (for disc placeholder) */
+    @keyframes spin-slow {
+        from { transform: rotate(0deg); }
+        to { transform: rotate(360deg); }
+    }
+    .animate-spin-slow {
         animation: spin-slow 10s linear infinite;
     }
 
-    /* NOVO: Keyframes para a animação de brilho dos ícones da timeline */
+    /* Keyframes para a animação de brilho dos ícones da timeline */
     @keyframes pulse-glow {
       0%, 100% {
         box-shadow: 0 0 0 3px var(--tw-brand-blue);
@@ -106,22 +112,20 @@
         box-shadow: 0 0 0 3px var(--tw-brand-blue);
     }
 
-    /* NOVO: Aplica a animação de brilho DEPOIS que o elemento é revelado */
+    /* Aplica a animação de brilho DEPOIS que o elemento é revelado */
     .reveal.visible .timeline-icon {
         animation: pulse-glow 2.5s infinite ease-in-out;
     }
 
-    /* Styling for Music Cards */
+    /* Styling for Music Cards - Mantido o transition e position/overflow para o efeito visual de gradiente */
         .music-card-link {
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             position: relative;
             overflow: hidden;
         }
-
-        .music-card-link:hover {
-            box-shadow: 0 10px 25px -3px rgba(41, 170, 226, 0.4), 0 4px 6px -2px rgba(41, 170, 226, 0.1);
-        }
-
+        
+        /* O efeito de sombra no hover será aplicado diretamente no HTML usando as classes shadow-blue-hover-strong */
+        
         .music-card-link::before {
             content: '';
             position: absolute;
@@ -138,7 +142,7 @@
             opacity: 1;
         }
 
-        /* Mobile menu transition */
+    /* Mobile menu transition */
     #mobile-menu { transition: transform 0.3s ease-in-out; }
 
     /* Custom Scrollbar Styles (WebKit) */
@@ -215,14 +219,14 @@
             </div>
         </section>
 
-        <!-- About Section (FIXED: Simplified responsive layout using grid) -->
+        <!-- About Section (Card de Texto com Hover Scale) -->
         <section id="about" class="py-20 md:py-32 bg-secondary-bg relative overflow-hidden">
             <div class="container mx-auto px-6">
                 <!-- Using a simple grid layout for better responsiveness than absolute positioning -->
                 <div class="lg:grid lg:grid-cols-12 lg:gap-16 items-center reveal">
                     
-                    <!-- Text Content (Right side, elevated) - order 1 on mobile, order 2 on desktop -->
-                    <div class="lg:col-span-7 relative bg-white p-8 md:p-12 rounded-2xl shadow-2xl w-full border-t-8 border-brand-blue order-1 lg:order-2">
+                    <!-- Text Content (Com Hover Scale e Transition e Shadow) -->
+                    <div class="lg:col-span-7 relative bg-white p-8 md:p-12 rounded-2xl shadow-xl shadow-blue-hover-strong w-full border-t-8 border-brand-blue order-1 lg:order-2 transition-transform duration-300 hover:scale-[1.02]">
                         <p class="text-sm font-semibold uppercase text-brand-blue mb-2 tracking-widest">Nossa Identidade</p>
                         <h2 class="text-4xl md:text-5xl font-bold text-brand-text mb-6">Ministério Uziel: A Força da Fé</h2>
                         <p class="text-lg text-slate-600 leading-relaxed mb-4 border-l-4 border-slate-200 pl-4">
@@ -236,7 +240,7 @@
                         </a>
                     </div>
 
-                    <!-- Image (Left side, stacked on mobile) - order 2 on mobile, order 1 on desktop -->
+                    <!-- Image (Mantido Hover Scale) -->
                     <div class="lg:col-span-5 mt-10 lg:mt-0 order-2 lg:order-1">
                         <img src="assets/img/4.jpg" alt="Ministério Uziel no estúdio" class="rounded-3xl shadow-2xl w-full h-auto object-cover transform transition-transform duration-500 hover:scale-[1.02]" style="aspect-ratio: 4/3;" onerror="this.onerror=null;this.src='https://placehold.co/600x450/ccc/333?text=Imagem+Indispon%C3%ADvel';">
                     </div>
@@ -245,7 +249,7 @@
             </div>
         </section>
         
-      <!-- Music Section (Detailed Cards) -->
+        <!-- Music Section (Detalhes dos Cards - Já estavam com Hover Scale) -->
     <section id="music" class="py-20 md:py-32 bg-white">
         <div class="container mx-auto px-6 text-center reveal">
             <p class="text-sm font-semibold uppercase text-brand-blue mb-2 tracking-widest">Adoração e Louvor</p>
@@ -257,7 +261,7 @@
             <div class="grid grid-cols-1 lg:grid-cols-2 items-stretch justify-center gap-8 md:gap-10 max-w-6xl mx-auto">
                 
                 <!-- Single Card: O Céu é o Meu Lugar -->
-                <div class="music-card-link bg-secondary-bg p-6 rounded-2xl shadow-xl flex flex-col border border-slate-200">
+                <div class="music-card-link bg-secondary-bg p-6 rounded-2xl shadow-md shadow-blue-hover-strong flex flex-col border border-slate-200 hover:scale-[1.02] transition-transform">
                     <div class="flex flex-col sm:flex-row gap-6 items-start">
                         <img src="assets/img/7.jpg" 
                             alt="Capa do single O Céu é o Meu Lugar" 
@@ -296,7 +300,7 @@
                 </div>
 
                 <!-- Album Card: Próximo Lançamento -->
-                <div class="music-card-link bg-secondary-bg p-6 rounded-2xl shadow-xl flex flex-col border border-slate-200 opacity-80 cursor-default">
+                <div class="music-card-link bg-secondary-bg p-6 rounded-2xl shadow-md shadow-blue-hover-strong flex flex-col border border-slate-200 opacity-80 cursor-default hover:scale-[1.02] transition-transform">
                     <div class="flex flex-col sm:flex-row gap-6 items-start">
                         <!-- Imagem do novo álbum -->
                         <img src="assets/img/8.png" 
@@ -327,7 +331,7 @@
     </section>
 
 
-        <!-- Journey Section (FIXED: Simplified to Universal Left-Aligned Timeline for perfect mobile display) -->
+        <!-- Journey Section (Timeline - Já estava com Hover Scale) -->
         <section id="journey" class="py-20 md:py-32 bg-secondary-bg">
             <div class="container mx-auto px-6">
                 <div class="text-center mb-16 reveal">
@@ -347,10 +351,10 @@
                         <div class="w-10 h-10 rounded-full timeline-icon flex items-center justify-center flex-shrink-0 z-10 absolute top-0 left-4 md:left-1/2 md:transform md:-translate-x-1/2">
                             <i class="fas fa-cross text-brand-blue"></i>
                         </div>
-                        <!-- Content Box - Aligned to the right on mobile, alternates on desktop -->
+                        <!-- Content Box - Já estava com Hover Scale -->
                         <div class="md:w-1/2 md:pr-10 md:mr-auto md:ml-0 md:text-right md:order-2 w-full pt-1">
-                             <h3 class="text-xl md:text-2xl font-bold text-brand-dark-blue mb-3">O Começo como Ministério Ágape (2019)</h3>
-                            <p class="text-slate-600 text-base leading-relaxed bg-white p-6 rounded-xl shadow-md border-l-4 border-brand-blue transition-all duration-300 ease-in-out hover:scale-[1.03] hover:shadow-xl">
+                            <h3 class="text-xl md:text-2xl font-bold text-brand-dark-blue mb-3">O Começo como Ministério Ágape (2019)</h3>
+                            <p class="text-slate-600 text-base leading-relaxed bg-white p-6 rounded-xl shadow-md border-l-4 border-brand-blue transition-all duration-300 ease-in-out hover:scale-[1.03] shadow-blue-hover-strong">
                                 Nossa história começou no final de 2019, inspirada em uma visão de fé no Acampamento Ágape. Como Ministério Ágape, demos nossos primeiros passos, movidos pelo desejo de espalhar esperança e espiritualidade. Expandimos nossa atuação, levando a música para missas e eventos, como a Jornada Diocesana da Juventude.
                             </p>
                         </div>
@@ -362,10 +366,10 @@
                         <div class="w-10 h-10 rounded-full timeline-icon flex items-center justify-center flex-shrink-0 z-10 absolute top-0 left-4 md:left-1/2 md:transform md:-translate-x-1/2">
                             <i class="fas fa-users text-brand-blue"></i>
                         </div>
-                        <!-- Content Box - Aligned to the right on mobile, alternates on desktop -->
+                        <!-- Content Box - Já estava com Hover Scale -->
                         <div class="md:w-1/2 md:pl-10 md:ml-auto md:mr-0 md:text-left w-full pt-1">
                             <h3 class="text-xl md:text-2xl font-bold text-brand-dark-blue mb-3">Crescimento e Novos Dons (2020)</h3>
-                            <p class="text-slate-600 text-base leading-relaxed bg-white p-6 rounded-xl shadow-md border-r-4 border-brand-blue transition-all duration-300 ease-in-out hover:scale-[1.03] hover:shadow-xl">
+                            <p class="text-slate-600 text-base leading-relaxed bg-white p-6 rounded-xl shadow-md border-r-4 border-brand-blue transition-all duration-300 ease-in-out hover:scale-[1.03] shadow-blue-hover-strong">
                                 Em 2020, o grupo experimentou uma expansão significativa com a chegada de novos membros que trouxeram suas habilidades e dons únicos. A expertise técnica de Alexandre em audiovisual, por exemplo, elevou nossas produções. Este período fortaleceu nossas bases e ampliou nossa influência na Paróquia de São Pedro Apóstolo e além.
                             </p>
                         </div>
@@ -377,10 +381,10 @@
                         <div class="w-10 h-10 rounded-full timeline-icon flex items-center justify-center flex-shrink-0 z-10 absolute top-0 left-4 md:left-1/2 md:transform md:-translate-x-1/2">
                             <i class="fas fa-lightbulb text-brand-blue"></i>
                         </div>
-                        <!-- Content Box - Aligned to the right on mobile, alternates on desktop -->
+                        <!-- Content Box - Já estava com Hover Scale -->
                         <div class="md:w-1/2 md:pr-10 md:mr-auto md:ml-0 md:text-right md:order-2 w-full pt-1">
                             <h3 class="text-xl md:text-2xl font-bold text-brand-dark-blue mb-3">A Identidade Uziel e Lançamentos (2022)</h3>
-                            <p class="text-slate-600 text-base leading-relaxed bg-white p-6 rounded-xl shadow-md border-l-4 border-brand-blue transition-all duration-300 ease-in-out hover:scale-[1.03] hover:shadow-xl">
+                            <p class="text-slate-600 text-base leading-relaxed bg-white p-6 rounded-xl shadow-md border-l-4 border-brand-blue transition-all duration-300 ease-in-out hover:scale-[1.03] shadow-blue-hover-strong">
                                 Em 2022, adotamos o nome <strong>Uziel</strong>. A mudança refletiu nosso crescimento e o desejo de ter uma identidade que representasse a "Força de Deus" em nossa jornada. Em 2023, lançamos nosso primeiro single, "O Céu é o Meu Lugar", marcando o início da nossa jornada autoral.
                             </p>
                         </div>
@@ -390,13 +394,14 @@
             </div>
         </section>
 
-        <!-- Mission & Vision Section with Parallax -->
+        <!-- Mission & Vision Section with Parallax (Bloco com Hover Scale) -->
         <section id="mission" class="py-24 md:py-40 parallax-bg relative">
             <div class="absolute inset-0 bg-brand-dark-blue/70"></div>
             <div class="container mx-auto px-6 text-center relative z-10 reveal">
                 <h2 class="text-4xl md:text-5xl font-bold text-white mb-4">Nossa Razão de Ser</h2>
                 <p class="text-xl text-slate-200 mb-8 max-w-3xl mx-auto">Ser um canal de bênçãos, inspiração e adoração através da música.</p>
-                <div class="max-w-4xl mx-auto text-lg text-white leading-relaxed text-center space-y-4 bg-black/40 p-8 md:p-10 rounded-xl backdrop-blur-sm shadow-2xl border-b-4 border-white">
+                <!-- AGORA com Hover Scale e Transition -->
+                <div class="max-w-4xl mx-auto text-lg text-white leading-relaxed text-center space-y-4 bg-black/40 p-8 md:p-10 rounded-xl backdrop-blur-sm shadow-2xl border-b-4 border-white transition-transform duration-300 hover:scale-[1.02]">
                     <p class="text-xl font-medium">Missão:</p>
                     <p>Nossa missão é levar a palavra de Deus através da música, criando uma atmosfera de louvor e adoração onde quer que estejamos. Acreditamos que a música tem o poder de tocar corações e transformar vidas.</p>
                     <p class="text-xl font-medium pt-4">Visão:</p>
@@ -405,7 +410,7 @@
             </div>
         </section>
 
-        <!-- Members Section (Improved List and Visuals) -->
+        <!-- Members Section (AGORA com Hover Scale e Shadow Blue) -->
         <section id="members" class="py-20 md:py-32 bg-white">
             <div class="container mx-auto px-6 reveal">
                 <div class="text-center mb-12">
@@ -413,8 +418,10 @@
                     <h2 class="text-4xl md:text-5xl font-bold text-brand-text mb-4">Nossos Integrantes</h2>
                     <p class="text-xl text-slate-500">A força por trás da nossa música e da nossa missão.</p>
                 </div>
-                <div class="max-w-6xl mx-auto flex flex-col lg:flex-row items-start gap-12 bg-secondary-bg p-8 rounded-2xl shadow-xl">
+                <!-- NOVO: Adicionado transition-transform, hover:scale-[1.02] e shadow-blue-hover-strong -->
+                <div class="max-w-6xl mx-auto flex flex-col lg:flex-row items-start gap-12 bg-secondary-bg p-8 rounded-2xl shadow-xl shadow-blue-hover-strong transition-transform duration-300 hover:scale-[1.02]">
                     <div class="lg:w-1/2 flex flex-col items-center">
+                        <!-- Sombra da imagem também atualizada para shadow-2xl (neutra) -->
                         <img src="assets/img/9.jpg" alt="Integrantes do Ministério Uziel" class="rounded-xl shadow-2xl w-full h-auto object-cover border-4 border-white" onerror="this.onerror=null;this.src='https://placehold.co/600x400/ccc/333?text=Integrantes';">
                         <p class="mt-4 text-sm text-slate-500 italic text-center">Ministério Uziel na JDJ 2024 em Tacuru - MS.</p>
                     </div>
@@ -547,9 +554,6 @@
             }
         };
 
-        // REMOVIDO: Antiga função revealOnScroll baseada em scroll
-        // const revealOnScroll = () => { ... };
-
         // Mobile menu toggle functions
             const openMenu = () => mobileMenu?.classList.remove('-translate-x-full');
             const closeMenu = () => mobileMenu?.classList.add('-translate-x-full');
@@ -558,7 +562,6 @@
         window.addEventListener('scroll', () => {
             handleHeaderScroll();
             toggleBackToTopButton();
-            // REMOVIDO: revealOnScroll();
         });
 
         backToTopButton?.addEventListener('click', () => {
@@ -572,7 +575,6 @@
         // Initial checks on page load
         handleHeaderScroll();
         toggleBackToTopButton();
-        // REMOVIDO: setTimeout(revealOnScroll, 50); 
     });
 </script>
 </body>
