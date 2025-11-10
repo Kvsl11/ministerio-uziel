@@ -245,48 +245,87 @@
             </div>
         </section>
         
-        <!-- Music Section (Detailed Cards) -->
-        <section id="music" class="py-20 md:py-32 bg-white">
-            <div class="container mx-auto px-6 text-center reveal">
-                <p class="text-sm font-semibold uppercase text-brand-blue mb-2 tracking-widest">Adoração e Louvor</p>
-                <h2 class="text-4xl md:text-5xl font-bold text-brand-text mb-4">Nossa Música</h2>
-                <p class="text-xl text-slate-500 mb-16 max-w-3xl mx-auto">Canções que nascem da nossa fé e da nossa história, disponíveis nas principais plataformas digitais.</p>
-                <div class="grid grid-cols-1 lg:grid-cols-2 items-stretch justify-center gap-8 md:gap-10 max-w-6xl mx-auto">
-                    
-                    <!-- Single Card: O Céu é o Meu Lugar -->
-                    <a href="https://open.spotify.com/track/2zIfKSvOW9rOd07rp0RZwe?si=CJZeCFpVTjSGnLuJde89Yw" target="_blank" class="music-card-link bg-secondary-bg p-6 rounded-2xl shadow-xl flex flex-col border border-slate-200">
-                        <div class="flex flex-col sm:flex-row gap-6 items-start">
-                            <img src="assets/img/7.jpg" alt="Capa do single O Céu é o Meu Lugar" class="w-full sm:w-36 h-auto sm:h-36 object-cover rounded-xl shadow-lg flex-shrink-0" onerror="this.onerror=null;this.src='https://placehold.co/400x400/ccc/333?text=Capa+do+Single';">
-                            <div class="text-left flex-grow">
-                                <span class="text-xs font-medium uppercase tracking-wider text-slate-400">Single Oficial</span>
-                                <h3 class="text-2xl sm:text-3xl font-bold text-brand-text mb-1 mt-1">O Céu é o Meu Lugar</h3>
-                                <p class="text-brand-blue font-semibold text-lg mb-3">Ministério Uziel</p>
-                                <p class="text-slate-500 text-sm mb-4">Lançamento: 17 de Fevereiro de 2023. Uma canção de esperança e entrega. Composição: Amanda Palhano.</p>
-                                <div class="flex space-x-4 pt-2">
-                                    <span class="text-slate-400 hover:text-green-500 transition-colors transform hover:scale-110" title="Ouvir no Spotify"><i class="fab fa-spotify fa-2x"></i></span>
-                                    <span class="text-slate-400 hover:text-red-600 transition-colors transform hover:scale-110" title="Assistir no YouTube"><i class="fab fa-youtube fa-2x"></i></span>
-                                </div>
+      <!-- Music Section (Detailed Cards) -->
+    <section id="music" class="py-20 md:py-32 bg-white">
+        <div class="container mx-auto px-6 text-center reveal">
+            <p class="text-sm font-semibold uppercase text-brand-blue mb-2 tracking-widest">Adoração e Louvor</p>
+            <h2 class="text-4xl md:text-5xl font-bold text-brand-text mb-4">Nossa Música</h2>
+            <p class="text-xl text-slate-500 mb-16 max-w-3xl mx-auto">
+                Canções que nascem da nossa fé e da nossa história, disponíveis nas principais plataformas digitais.
+            </p>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 items-stretch justify-center gap-8 md:gap-10 max-w-6xl mx-auto">
+                
+                <!-- Single Card: O Céu é o Meu Lugar -->
+                <div class="music-card-link bg-secondary-bg p-6 rounded-2xl shadow-xl flex flex-col border border-slate-200">
+                    <div class="flex flex-col sm:flex-row gap-6 items-start">
+                        <img src="assets/img/7.jpg" 
+                            alt="Capa do single O Céu é o Meu Lugar" 
+                            class="w-full sm:w-36 h-auto sm:h-36 object-cover rounded-xl shadow-lg flex-shrink-0" 
+                            onerror="this.onerror=null;this.src='https://placehold.co/400x400/ccc/333?text=Capa+do+Single';">
+                        
+                        <div class="text-left flex-grow">
+                            <span class="text-xs font-medium uppercase tracking-wider text-slate-400">Single Oficial</span>
+                            <h3 class="text-2xl sm:text-3xl font-bold text-brand-text mb-1 mt-1">O Céu é o Meu Lugar</h3>
+                            <p class="text-brand-blue font-semibold text-lg mb-3">Ministério Uziel</p>
+                            <p class="text-slate-500 text-sm mb-4">
+                                Lançamento: 17 de Fevereiro de 2023. Uma canção de esperança e entrega. 
+                                Composição: Amanda Palhano.
+                            </p>
+
+                            <!-- Ícones de plataforma -->
+                            <div class="flex space-x-4 pt-2">
+                                <!-- Spotify -->
+                                <a href="https://open.spotify.com/track/2zIfKSvOW9rOd07rp0RZwe?si=CJZeCFpVTjSGnLuJde89Yw" 
+                                target="_blank" 
+                                title="Ouvir no Spotify" 
+                                class="text-slate-400 hover:text-green-500 transition-colors transform hover:scale-110">
+                                    <i class="fab fa-spotify fa-2x"></i>
+                                </a>
+
+                                <!-- YouTube -->
+                                <a href="https://youtu.be/Ex5_7BNRn9k?si=Cq3IM2uF0MukKR-y" 
+                                target="_blank" 
+                                title="Assistir no YouTube" 
+                                class="text-slate-400 hover:text-red-600 transition-colors transform hover:scale-110">
+                                    <i class="fab fa-youtube fa-2x"></i>
+                                </a>
                             </div>
                         </div>
-                    </a>
+                    </div>
+                </div>
 
-                    <!-- Album Card: Próximo Lançamento --><div class="music-card-link bg-secondary-bg p-6 rounded-2xl shadow-xl flex flex-col border border-slate-200 opacity-80 cursor-default">
+                <!-- Album Card: Próximo Lançamento -->
+                <div class="music-card-link bg-secondary-bg p-6 rounded-2xl shadow-xl flex flex-col border border-slate-200 opacity-80 cursor-default">
                     <div class="flex flex-col sm:flex-row gap-6 items-start">
-                        <!-- ALTERAÇÃO AQUI: A imagem do novo álbum --><img src="assets/img/8.png" alt="Capa do Novo Álbum" class="w-full sm:w-36 h-auto sm:h-36 object-cover rounded-xl shadow-lg flex-shrink-0" onerror="this.onerror=null;this.src='https://placehold.co/400x400/ccc/333?text=Capa+do+Novo+%C3%81lbum';">
+                        <!-- Imagem do novo álbum -->
+                        <img src="assets/img/8.png" 
+                            alt="Capa do Novo Álbum" 
+                            class="w-full sm:w-36 h-auto sm:h-36 object-cover rounded-xl shadow-lg flex-shrink-0" 
+                            onerror="this.onerror=null;this.src='https://placehold.co/400x400/ccc/333?text=Capa+do+Novo+%C3%81lbum';">
                         
                         <div class="text-left flex-grow">
                             <span class="text-xs font-medium uppercase tracking-wider text-brand-blue">Em Produção</span>
                             <h3 class="text-2xl sm:text-3xl font-bold text-brand-text mb-1 mt-1">Novo Álbum</h3>
                             <p class="text-slate-400 font-semibold text-lg mb-3">Em 2026</p>
-                            <p class="text-slate-500 text-sm mb-4">Estamos no estúdio, preparando com muito carinho novas canções para abençoar sua vida. Uma coleção de louvores poderosos e momentos de adoração íntima. Fique ligado para a data de lançamento!</p>
+                            <p class="text-slate-500 text-sm mb-4">
+                                Estamos no estúdio, preparando com muito carinho novas canções para abençoar sua vida. 
+                                Uma coleção de louvores poderosos e momentos de adoração íntima. 
+                                Fique ligado para a data de lançamento!
+                            </p>
                             <div class="flex space-x-4 pt-2">
-                                <span class="text-brand-blue/70 font-semibold text-sm flex items-center"><i class="fas fa-clock mr-1"></i> Em Breve</span>
+                                <span class="text-brand-blue/70 font-semibold text-sm flex items-center">
+                                    <i class="fas fa-clock mr-1"></i> Em Breve
+                                </span>
                             </div>
                         </div>
                     </div>
                 </div>
+
             </div>
-        </section>
+        </div>
+    </section>
+
 
         <!-- Journey Section (FIXED: Simplified to Universal Left-Aligned Timeline for perfect mobile display) -->
         <section id="journey" class="py-20 md:py-32 bg-secondary-bg">

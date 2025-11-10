@@ -62,12 +62,12 @@
 
     /* NOVO: Keyframes para a animação de brilho dos ícones da timeline */
     @keyframes pulse-glow {
-        0%, 100% {
-            box-shadow: 0 0 0 3px var(--tw-brand-blue);
-        }
-        50% {
-            box-shadow: 0 0 0 8px rgba(41, 170, 226, 0.3);
-        }
+      0%, 100% {
+        box-shadow: 0 0 0 3px var(--tw-brand-blue);
+      }
+      50% {
+        box-shadow: 0 0 0 8px rgba(41, 170, 226, 0.3);
+      }
     }
 
     /* Header transition styles */
@@ -138,25 +138,8 @@
             opacity: 1;
         }
 
-    /* Mobile menu transition */
+        /* Mobile menu transition */
     #mobile-menu { transition: transform 0.3s ease-in-out; }
-
-    /* NOVO: Estilos de transição do Modal */
-    #music-modal {
-        transition: opacity 0.3s ease-out;
-    }
-    #music-modal .modal-content-inner { /* Seletor para o conteúdo interno do modal */
-        transition: transform 0.3s ease-out, opacity 0.3s ease-out;
-    }
-
-    /* NOVO: Estilos para o modal do YouTube (idêntico ao do Spotify) */
-    #youtube-modal {
-        transition: opacity 0.3s ease-out;
-    }
-    #youtube-modal .modal-content-inner {
-        transition: transform 0.3s ease-out, opacity 0.3s ease-out;
-    }
-
 
     /* Custom Scrollbar Styles (WebKit) */
     ::-webkit-scrollbar {
@@ -262,61 +245,87 @@
             </div>
         </section>
         
-        <!-- Music Section (Detailed Cards) -->
-        <section id="music" class="py-20 md:py-32 bg-white">
-            <div class="container mx-auto px-6 text-center reveal">
-                <p class="text-sm font-semibold uppercase text-brand-blue mb-2 tracking-widest">Adoração e Louvor</p>
-                <h2 class="text-4xl md:text-5xl font-bold text-brand-text mb-4">Nossa Música</h2>
-                <p class="text-xl text-slate-500 mb-16 max-w-3xl mx-auto">Canções que nascem da nossa fé e da nossa história, disponíveis nas principais plataformas digitais.</p>
-                <div class="grid grid-cols-1 lg:grid-cols-2 items-stretch justify-center gap-8 md:gap-10 max-w-6xl mx-auto">
-                    
-                    <!-- 
-                      MUDANÇA AQUI: O <a> foi trocado por um <div>
-                      Adicionado id="open-music-modal"
-                      Adicionado data-spotify-track="..."
-                      Adicionado cursor-pointer
-                    -->
-                    <div class="music-card-link bg-secondary-bg p-6 rounded-2xl shadow-xl flex flex-col border border-slate-200">
-                        <div class="flex flex-col sm:flex-row gap-6 items-start">
-                            <img src="assets/img/7.jpg" alt="Capa do single O Céu é o Meu Lugar" class="w-full sm:w-36 h-auto sm:h-36 object-cover rounded-xl shadow-lg flex-shrink-0" onerror="this.onerror=null;this.src='https://placehold.co/400x400/ccc/333?text=Capa+do+Single';">
-                            <div class="text-left flex-grow">
-                                <span class="text-xs font-medium uppercase tracking-wider text-slate-400">Single Oficial</span>
-                                <h3 class="text-2xl sm:text-3xl font-bold text-brand-text mb-1 mt-1">O Céu é o Meu Lugar</h3>
-                                <p class="text-brand-blue font-semibold text-lg mb-3">Ministério Uziel</p>
-                                <p class="text-slate-500 text-sm mb-4">Lançamento: 17 de Fevereiro de 2023. Uma canção de esperança e entrega. Composição: Amanda Palhano.</p>
-                                
-                                <!-- MUDANÇA AQUI: Ícones agora são links <a> diretos como fallback e para não acionar o modal -->
-                                <div class="flex space-x-4 pt-2">
-                                    <!-- MUDANÇA: <a> removido, trocado por <button> para abrir o modal -->
-                                    <button id="open-spotify-modal-btn" data-spotify-track="2zIfKSvOW9rOd07rp0RZwe" class="text-slate-400 hover:text-green-500 transition-colors transform hover:scale-110" title="Ouvir no Spotify">
-                                        <i class="fab fa-spotify fa-2x"></i>
-                                    </button>
-                                    <!-- MUDANÇA: <a> removido, trocado por <button> para abrir o modal. ID do vídeo U9kE-bB-y4E (O CÉU É O MEU LUGAR - MINISTÉRIO UZIEL (AUTORAL)) -->
-                                    <button id="open-youtube-modal-btn" data-youtube-id="U9kE-bB-y4E" class="text-slate-400 hover:text-red-600 transition-colors transform hover:scale-110" title="Assistir no YouTube">
-                                        <i class="fab fa-youtube fa-2x"></i>
-                                    </button>
-                                </div>
+      <!-- Music Section (Detailed Cards) -->
+    <section id="music" class="py-20 md:py-32 bg-white">
+        <div class="container mx-auto px-6 text-center reveal">
+            <p class="text-sm font-semibold uppercase text-brand-blue mb-2 tracking-widest">Adoração e Louvor</p>
+            <h2 class="text-4xl md:text-5xl font-bold text-brand-text mb-4">Nossa Música</h2>
+            <p class="text-xl text-slate-500 mb-16 max-w-3xl mx-auto">
+                Canções que nascem da nossa fé e da nossa história, disponíveis nas principais plataformas digitais.
+            </p>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 items-stretch justify-center gap-8 md:gap-10 max-w-6xl mx-auto">
+                
+                <!-- Single Card: O Céu é o Meu Lugar -->
+                <div class="music-card-link bg-secondary-bg p-6 rounded-2xl shadow-xl flex flex-col border border-slate-200">
+                    <div class="flex flex-col sm:flex-row gap-6 items-start">
+                        <img src="assets/img/7.jpg" 
+                            alt="Capa do single O Céu é o Meu Lugar" 
+                            class="w-full sm:w-36 h-auto sm:h-36 object-cover rounded-xl shadow-lg flex-shrink-0" 
+                            onerror="this.onerror=null;this.src='https://placehold.co/400x400/ccc/333?text=Capa+do+Single';">
+                        
+                        <div class="text-left flex-grow">
+                            <span class="text-xs font-medium uppercase tracking-wider text-slate-400">Single Oficial</span>
+                            <h3 class="text-2xl sm:text-3xl font-bold text-brand-text mb-1 mt-1">O Céu é o Meu Lugar</h3>
+                            <p class="text-brand-blue font-semibold text-lg mb-3">Ministério Uziel</p>
+                            <p class="text-slate-500 text-sm mb-4">
+                                Lançamento: 17 de Fevereiro de 2023. Uma canção de esperança e entrega. 
+                                Composição: Amanda Palhano.
+                            </p>
+
+                            <!-- Ícones de plataforma -->
+                            <div class="flex space-x-4 pt-2">
+                                <!-- Spotify -->
+                                <a href="https://open.spotify.com/track/2zIfKSvOW9rOd07rp0RZwe?si=CJZeCFpVTjSGnLuJde89Yw" 
+                                target="_blank" 
+                                title="Ouvir no Spotify" 
+                                class="text-slate-400 hover:text-green-500 transition-colors transform hover:scale-110">
+                                    <i class="fab fa-spotify fa-2x"></i>
+                                </a>
+
+                                <!-- YouTube -->
+                                <a href="https://youtu.be/Ex5_7BNRn9k?si=Cq3IM2uF0MukKR-y" 
+                                target="_blank" 
+                                title="Assistir no YouTube" 
+                                class="text-slate-400 hover:text-red-600 transition-colors transform hover:scale-110">
+                                    <i class="fab fa-youtube fa-2x"></i>
+                                </a>
                             </div>
                         </div>
                     </div>
+                </div>
 
-                    <!-- Album Card: Próximo Lançamento --><div class="music-card-link bg-secondary-bg p-6 rounded-2xl shadow-xl flex flex-col border border-slate-200 opacity-80 cursor-default">
+                <!-- Album Card: Próximo Lançamento -->
+                <div class="music-card-link bg-secondary-bg p-6 rounded-2xl shadow-xl flex flex-col border border-slate-200 opacity-80 cursor-default">
                     <div class="flex flex-col sm:flex-row gap-6 items-start">
-                        <!-- ALTERAÇÃO AQUI: A imagem do novo álbum --><img src="assets/img/8.png" alt="Capa do Novo Álbum" class="w-full sm:w-36 h-auto sm:h-36 object-cover rounded-xl shadow-lg flex-shrink-0" onerror="this.onerror=null;this.src='https://placehold.co/400x400/ccc/333?text=Capa+do+Novo+%C3%81lbum';">
+                        <!-- Imagem do novo álbum -->
+                        <img src="assets/img/8.png" 
+                            alt="Capa do Novo Álbum" 
+                            class="w-full sm:w-36 h-auto sm:h-36 object-cover rounded-xl shadow-lg flex-shrink-0" 
+                            onerror="this.onerror=null;this.src='https://placehold.co/400x400/ccc/333?text=Capa+do+Novo+%C3%81lbum';">
                         
                         <div class="text-left flex-grow">
                             <span class="text-xs font-medium uppercase tracking-wider text-brand-blue">Em Produção</span>
                             <h3 class="text-2xl sm:text-3xl font-bold text-brand-text mb-1 mt-1">Novo Álbum</h3>
                             <p class="text-slate-400 font-semibold text-lg mb-3">Em 2026</p>
-                            <p class="text-slate-500 text-sm mb-4">Estamos no estúdio, preparando com muito carinho novas canções para abençoar sua vida. Uma coleção de louvores poderosos e momentos de adoração íntima. Fique ligado para a data de lançamento!</p>
+                            <p class="text-slate-500 text-sm mb-4">
+                                Estamos no estúdio, preparando com muito carinho novas canções para abençoar sua vida. 
+                                Uma coleção de louvores poderosos e momentos de adoração íntima. 
+                                Fique ligado para a data de lançamento!
+                            </p>
                             <div class="flex space-x-4 pt-2">
-                                <span class="text-brand-blue/70 font-semibold text-sm flex items-center"><i class="fas fa-clock mr-1"></i> Em Breve</span>
+                                <span class="text-brand-blue/70 font-semibold text-sm flex items-center">
+                                    <i class="fas fa-clock mr-1"></i> Em Breve
+                                </span>
                             </div>
                         </div>
                     </div>
                 </div>
+
             </div>
-        </section>
+        </div>
+    </section>
+
 
         <!-- Journey Section (FIXED: Simplified to Universal Left-Aligned Timeline for perfect mobile display) -->
         <section id="journey" class="py-20 md:py-32 bg-secondary-bg">
@@ -439,9 +448,9 @@
         <!-- Contact Section (Social Icons Enhanced) -->
         <section id="contact" class="py-20 md:py-28 bg-white">
     <div class="container mx-auto px-6 text-center reveal">
-            <p class="text-sm font-semibold uppercase text-brand-blue mb-2 tracking-widest">Conecte-se Conosco</p>
-            <h2 class="text-4xl md:text-5xl font-bold text-brand-text mb-4">Siga-nos</h2>
-            <p class="text-xl text-slate-500 mb-12">Acompanhe nossa jornada e novidades nas redes sociais e plataformas de música.</p>
+                <p class="text-sm font-semibold uppercase text-brand-blue mb-2 tracking-widest">Conecte-se Conosco</p>
+                <h2 class="text-4xl md:text-5xl font-bold text-brand-text mb-4">Siga-nos</h2>
+                <p class="text-xl text-slate-500 mb-12">Acompanhe nossa jornada e novidades nas redes sociais e plataformas de música.</p>
         <div class="flex flex-wrap justify-center items-center gap-6 md:gap-10 max-w-2xl mx-auto">
             <!-- Spotify (Adicionado hover:-translate-y-1) -->
             <a href="https://open.spotify.com/user/31g7w3m744kda4o4ql5cyzvq3zba" target="_blank" class="text-4xl text-slate-400 hover:text-green-500 transition-all duration-300 transform hover:scale-110 hover:-translate-y-1" title="Spotify"><i class="fab fa-spotify"></i></a>
@@ -456,65 +465,6 @@
         </div>
     </div>
 </section>
-
-    <!-- 
-      NOVO: Modal do Player de Música
-      Adicionado antes do fim do </main> 
-    -->
-    <div id="music-modal" class="fixed inset-0 bg-black/70 backdrop-blur-sm z-[90] flex items-center justify-center p-4 hidden opacity-0">
-        <!-- Overlay para fechar -->
-        <div id="music-modal-overlay" class="absolute inset-0"></div>
-        
-        <!-- Conteúdo do Modal -->
-        <div class="bg-white rounded-2xl shadow-2xl w-full max-w-md mx-auto z-[91] relative transform scale-95 opacity-0 modal-content-inner">
-            <!-- Header do Modal -->
-            <div class="flex justify-between items-center p-4 border-b border-slate-200">
-                <h3 class="text-lg font-semibold text-brand-text">Ouvir Agora</h3>
-                <button id="close-music-modal" class="text-slate-400 hover:text-brand-blue transition-colors w-8 h-8 rounded-full hover:bg-slate-100 flex items-center justify-center">
-                    <i class="fas fa-times fa-lg"></i>
-                </button>
-            </div>
-            <!-- Container do Embed -->
-            <div class="p-4">
-                <div id="spotify-embed-container" class="bg-slate-100 rounded-xl overflow-hidden">
-                    <!-- O Iframe do Spotify será injetado aqui pelo JS -->
-                    <!-- Adicionado um min-height para o estado de loading -->
-                    <div style="min-height: 352px;"></div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- 
-      NOVO: Modal do Player do YouTube
-      Adicionado antes do fim do </main> 
-    -->
-    <div id="youtube-modal" class="fixed inset-0 bg-black/70 backdrop-blur-sm z-[90] flex items-center justify-center p-4 hidden opacity-0">
-        <!-- Overlay para fechar -->
-        <div id="youtube-modal-overlay" class="absolute inset-0"></div>
-        
-        <!-- Conteúdo do Modal -->
-        <div class="bg-white rounded-2xl shadow-2xl w-full max-w-lg mx-auto z-[91] relative transform scale-95 opacity-0 modal-content-inner">
-            <!-- Header do Modal -->
-            <div class="flex justify-between items-center p-4 border-b border-slate-200">
-                <h3 class="text-lg font-semibold text-brand-text">Assistir Agora</h3>
-                <button id="close-youtube-modal" class="text-slate-400 hover:text-brand-blue transition-colors w-8 h-8 rounded-full hover:bg-slate-100 flex items-center justify-center">
-                    <i class="fas fa-times fa-lg"></i>
-                </button>
-            </div>
-            <!-- Container do Embed -->
-            <div class="p-4">
-                <!-- Wrapper responsivo para vídeo 16:9 -->
-                <div class="relative w-full overflow-hidden" style="padding-top: 56.25%;">
-                    <div id="youtube-embed-container" class="absolute top-0 left-0 bottom-0 right-0 w-full h-full">
-                        <!-- O Iframe do YouTube será injetado aqui pelo JS -->
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-
     </main>
     
     <!-- Footer -->
@@ -538,121 +488,6 @@
         const mobileMenu = document.getElementById('mobile-menu');
         const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
         const revealElements = document.querySelectorAll('.reveal');
-
-        // NOVO: Elementos do Modal de Música
-        const musicModal = document.getElementById('music-modal');
-        const musicModalOverlay = document.getElementById('music-modal-overlay');
-        const musicModalContent = musicModal?.querySelector('.modal-content-inner'); // O contêiner de conteúdo
-        const closeMusicModalBtn = document.getElementById('close-music-modal');
-        const openMusicModalBtn = document.getElementById('open-spotify-modal-btn'); // MUDANÇA: ID atualizado
-        const spotifyEmbedContainer = document.getElementById('spotify-embed-container');
-
-        // NOVO: Elementos do Modal do YouTube
-        const youtubeModal = document.getElementById('youtube-modal');
-        const youtubeModalOverlay = document.getElementById('youtube-modal-overlay');
-        const youtubeModalContent = youtubeModal?.querySelector('.modal-content-inner');
-        const closeYouTubeModalBtn = document.getElementById('close-youtube-modal');
-        const openYouTubeModalBtn = document.getElementById('open-youtube-modal-btn');
-        const youtubeEmbedContainer = document.getElementById('youtube-embed-container');
-
-
-        // NOVO: Função para abrir o modal
-        const openMusicModal = () => {
-            if (!musicModal || !openMusicModalBtn || !spotifyEmbedContainer) return;
-
-            const trackId = openMusicModalBtn.dataset.spotifyTrack;
-            if (!trackId) return;
-
-            // Injeta o iframe do Spotify
-            // Adicionado theme=0 para o tema escuro que combina mais
-            spotifyEmbedContainer.innerHTML = `<iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/${trackId}?utm_source=generator&theme=0" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>`;
-            
-            // Mostra o modal com animação
-            musicModal.classList.remove('hidden');
-            setTimeout(() => {
-                musicModal.classList.add('opacity-100');
-                if(musicModalContent) {
-                    musicModalContent.classList.remove('scale-95', 'opacity-0');
-                    musicModalContent.classList.add('scale-100', 'opacity-100');
-                }
-            }, 10); // Pequeno delay para a transição funcionar
-        };
-
-        // NOVO: Função para fechar o modal
-        const closeMusicModal = () => {
-            if (!musicModal || !spotifyEmbedContainer) return;
-
-            // Remove o iframe para parar a música
-            spotifyEmbedContainer.innerHTML = '<div style="min-height: 352px;"></div>'; // Reseta para o placeholder
-            
-            // Esconde o modal com animação
-            musicModal.classList.remove('opacity-100');
-            if(musicModalContent) {
-                musicModalContent.classList.add('scale-95', 'opacity-0');
-                musicModalContent.classList.remove('scale-100', 'opacity-100');
-            }
-            setTimeout(() => {
-                musicModal.classList.add('hidden');
-            }, 300); // Espera a transição de 300ms terminar
-        };
-
-        // NOVO: Funções para o Modal do YouTube
-        const openYouTubeModal = () => {
-            if (!youtubeModal || !openYouTubeModalBtn || !youtubeEmbedContainer) return;
-
-            const videoId = openYouTubeModalBtn.dataset.youtubeId;
-            if (!videoId) return;
-
-            // Injeta o iframe do YouTube
-            youtubeEmbedContainer.innerHTML = `<iframe class="absolute top-0 left-0 w-full h-full" src="https://www.youtube.com/embed/${videoId}?autoplay=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>`;
-            
-            // Mostra o modal com animação
-            youtubeModal.classList.remove('hidden');
-            setTimeout(() => {
-                youtubeModal.classList.add('opacity-100');
-                if(youtubeModalContent) {
-                    youtubeModalContent.classList.remove('scale-95', 'opacity-0');
-                    youtubeModalContent.classList.add('scale-100', 'opacity-100');
-                }
-            }, 10);
-        };
-
-        const closeYouTubeModal = () => {
-            if (!youtubeModal || !youtubeEmbedContainer) return;
-
-            // Remove o iframe para parar a música
-            youtubeEmbedContainer.innerHTML = '';
-            
-            // Esconde o modal com animação
-            youtubeModal.classList.remove('opacity-100');
-            if(youtubeModalContent) {
-                youtubeModalContent.classList.add('scale-95', 'opacity-0');
-                youtubeModalContent.classList.remove('scale-100', 'opacity-100');
-            }
-            setTimeout(() => {
-                youtubeModal.classList.add('hidden');
-            }, 300);
-        };
-
-
-        // NOVO: Event Listeners do Modal
-        openMusicModalBtn?.addEventListener('click', (e) => {
-            // Impede que o clique no link do ícone (<a>) ative o modal
-            /* REMOVIDO:
-            if (e.target.closest('a')) {
-                return;
-            }
-            */
-            openMusicModal();
-        });
-        closeMusicModalBtn?.addEventListener('click', closeMusicModal);
-        musicModalOverlay?.addEventListener('click', closeMusicModal);
-
-        // NOVO: Event Listeners do Modal do YouTube
-        openYouTubeModalBtn?.addEventListener('click', openYouTubeModal);
-        closeYouTubeModalBtn?.addEventListener('click', closeYouTubeModal);
-        youtubeModalOverlay?.addEventListener('click', closeYouTubeModal);
-
 
         // NOVO: Substituído o listener de scroll por IntersectionObserver para performance
         const revealObserver = new IntersectionObserver((entries, observer) => {
