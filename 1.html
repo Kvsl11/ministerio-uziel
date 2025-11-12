@@ -178,6 +178,7 @@
                 <a href="#about" class="desktop-nav-link font-medium text-slate-200 hover:text-white transition-colors duration-300 px-3 py-1 rounded-full hover:bg-white/10">Sobre</a>
                 <a href="#music" class="desktop-nav-link font-medium text-slate-200 hover:text-white transition-colors duration-300 px-3 py-1 rounded-full hover:bg-white/10">Música</a>
                 <a href="#journey" class="desktop-nav-link font-medium text-slate-200 hover:text-white transition-colors duration-300 px-3 py-1 rounded-full hover:bg-white/10">Jornada</a>
+                <a href="#agenda" class="desktop-nav-link font-medium text-slate-200 hover:text-white transition-colors duration-300 px-3 py-1 rounded-full hover:bg-white/10">Agenda</a>
                 <a href="#members" class="desktop-nav-link font-medium text-slate-200 hover:text-white transition-colors duration-300 px-3 py-1 rounded-full hover:bg-white/10">Integrantes</a>
                 <a href="#contact" class="bg-brand-blue text-white font-semibold px-5 py-2 rounded-full hover:bg-brand-dark-blue transition-all shadow-md hover:shadow-lg hover:scale-[1.02]">Contato</a>
             </nav>
@@ -198,6 +199,7 @@
             <a href="#about" class="mobile-nav-link text-3xl font-semibold text-brand-text hover:text-brand-blue transition-colors">Sobre</a>
             <a href="#music" class="mobile-nav-link text-3xl font-semibold text-brand-text hover:text-brand-blue transition-colors">Música</a>
             <a href="#journey" class="mobile-nav-link text-3xl font-semibold text-brand-text hover:text-brand-blue transition-colors">Jornada</a>
+            <a href="#agenda" class="mobile-nav-link text-3xl font-semibold text-brand-text hover:text-brand-blue transition-colors">Agenda</a>
             <a href="#members" class="mobile-nav-link text-3xl font-semibold text-brand-text hover:text-brand-blue transition-colors">Integrantes</a>
             <a href="#contact" class="mobile-nav-link mt-4 bg-brand-blue text-white font-semibold px-8 py-3 rounded-full text-xl hover:bg-brand-dark-blue transition-colors">Contato</a>
         </nav>
@@ -426,7 +428,7 @@
                     <div class="lg:w-1/2 flex flex-col items-center">
                         <!-- Sombra da imagem também atualizada para shadow-2xl (neutra) -->
                         <img src="assets/img/9.jpg" alt="Integrantes do Ministério Uziel" class="rounded-xl shadow-2xl w-full h-auto object-cover border-4 border-white" onerror="this.onerror=null;this.src='https://placehold.co/600x400/ccc/333?text=Integrantes';">
-                        <p class="mt-4 text-sm text-slate-500 italic text-center">Ministério Uziel na JDJ 2024 em Tacuru - MS.</p>
+                        <p class="mt-4 text-sm text-slate-500 italic text-center">JDJ 2024 em Tacuru - MS.</p>
                     </div>
                     <div class="lg:w-1/2 text-slate-600">
                         <p class="text-lg mb-6 border-b pb-4">
@@ -455,26 +457,126 @@
             </div>
         </section>
 
-        <!-- Contact Section (Social Icons Enhanced) -->
+       <!-- NOVA SEÇÃO: Agenda -->
+        <section id="agenda" class="py-20 md:py-32 bg-secondary-bg">
+            <div class="container mx-auto px-6 reveal">
+                <div class="text-center mb-12">
+                    <p class="text-sm font-semibold uppercase text-brand-blue mb-2 tracking-widest">Próximos Eventos</p>
+                    <h2 class="text-4xl md:text-5xl font-bold text-brand-text mb-4">Nossa Agenda</h2>
+                    <p class="text-xl text-slate-500 max-w-3xl mx-auto">Acompanhe onde estaremos levando nossa música e adoração. Esperamos por você!</p>
+                </div>
+
+                <!-- Grid de Eventos -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                    
+                    <!-- Card Evento 1 -->
+                    <div class="bg-white p-6 rounded-2xl shadow-md shadow-blue-hover-strong border-t-4 border-brand-blue transition-all duration-500 ease-out hover:scale-[1.03]">
+                        <div class="flex items-center gap-4 mb-3">
+                            <div class="flex-shrink-0 bg-brand-blue/10 text-brand-blue w-16 h-16 rounded-xl flex flex-col items-center justify-center text-center leading-none">
+                                <span class="font-bold text-3xl block">07</span>
+                                <span class="font-semibold text-sm uppercase block">DEZ</span>
+                            </div>
+                            <div>
+                                <h3 class="text-2xl font-bold text-brand-text">Missa do 2º Domingo do Advento</h3>
+                                <p class="text-slate-500 font-medium">Paróquia São Pedro Apóstulo</p>
+                                <p class="text-slate-400 text-sm font-medium flex items-center gap-1">
+                                    <i class="fa-regular fa-clock text-brand-blue"></i> 19h00
+                                </p>
+                            </div>
+                        </div>
+                        <p class="text-slate-600 text-sm mb-4">
+                            O 2º Domingo do Advento nos convida à conversão e à esperança, preparando os caminhos do Senhor com o coração aberto à Sua vinda.
+                        </p>
+                        <span class="inline-block bg-blue-100 text-blue-800 text-xs font-semibold px-3 py-1 rounded-full">Público</span>
+                    </div>
+
+                    <!-- Card Evento 2 -->
+                    <div class="bg-white p-6 rounded-2xl shadow-md shadow-blue-hover-strong border-t-4 border-brand-blue transition-all duration-500 ease-out hover:scale-[1.03]">
+                        <div class="flex items-center gap-4 mb-3">
+                            <div class="flex-shrink-0 bg-brand-blue/10 text-brand-blue w-16 h-16 rounded-xl flex flex-col items-center justify-center text-center leading-none">
+                                <span class="font-bold text-3xl block">20</span>
+                                <span class="font-semibold text-sm uppercase block">DEZ</span>
+                            </div>
+                            <div>
+                                <h3 class="text-2xl font-bold text-brand-text">Missa de Ordenação Presbiteral</h3>
+                                <p class="text-slate-500 font-medium">Paróquia São Pedro Apóstulo</p>
+                                <p class="text-slate-400 text-sm font-medium flex items-center gap-1">
+                                    <i class="fa-regular fa-clock text-brand-blue"></i> 18h00
+                                </p>
+                            </div>
+                        </div>
+                        <p class="text-slate-600 text-sm mb-4">
+                            Uma celebração única de fé e vocação. Juntos, louvaremos a Deus pela ordenação de um novo padre e pelo dom do sacerdócio a serviço da Igreja.
+                        </p>
+                        <span class="inline-block bg-blue-100 text-blue-800 text-xs font-semibold px-3 py-1 rounded-full">Público</span>
+                    </div>
+
+                    <!-- Card Evento 3 (Placeholder) -->
+                    <div class="bg-white p-6 rounded-2xl shadow-md shadow-blue-hover-strong border-t-4 border-slate-300 transition-all duration-500 ease-out hover:scale-[1.03] opacity-70">
+                        <div class="flex items-center gap-4 mb-3">
+                            <div class="flex-shrink-0 bg-slate-100 text-slate-500 w-16 h-16 rounded-xl flex flex-col items-center justify-center text-center leading-none">
+                                <span class="font-bold text-3xl block">?</span>
+                                <span class="font-semibold text-sm uppercase block">EM BREVE</span>
+                            </div>
+                            <div>
+                                <h3 class="text-2xl font-bold text-slate-600">Novas Datas</h3>
+                                <p class="text-slate-500 font-medium">Fique de olho!</p>
+                                <p class="text-slate-400 text-sm font-medium flex items-center gap-1">
+                                    <i class="fa-regular fa-clock text-brand-blue"></i> A definir
+                                </p>
+                            </div>
+                        </div>
+                        <p class="text-slate-600 text-sm mb-4">
+                            Estamos preparando novos eventos para compartilhar a fé e a música. Siga nossas redes sociais para saber mais!
+                        </p>
+                        <span class="inline-block bg-slate-100 text-slate-800 text-xs font-semibold px-3 py-1 rounded-full">Aguarde</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SEÇÃO DE CONTATO ATUALIZADA -->
         <section id="contact" class="py-20 md:py-28 bg-white">
-    <div class="container mx-auto px-6 text-center reveal">
+            <div class="container mx-auto px-6 text-center reveal">
                 <p class="text-sm font-semibold uppercase text-brand-blue mb-2 tracking-widest">Conecte-se Conosco</p>
-                <h2 class="text-4xl md:text-5xl font-bold text-brand-text mb-4">Siga-nos</h2>
-                <p class="text-xl text-slate-500 mb-12">Acompanhe nossa jornada e novidades nas redes sociais e plataformas de música.</p>
-        <div class="flex flex-wrap justify-center items-center gap-6 md:gap-10 max-w-2xl mx-auto">
-            <!-- Spotify (Adicionado hover:-translate-y-1) -->
-            <a href="https://open.spotify.com/user/31g7w3m744kda4o4ql5cyzvq3zba" target="_blank" class="text-4xl text-slate-400 hover:text-green-500 transition-all duration-300 transform hover:scale-110 hover:-translate-y-1" title="Spotify"><i class="fab fa-spotify"></i></a>
-            <!-- Instagram (Adicionado hover:-translate-y-1) -->
-            <a href="https://www.instagram.com/oministeriouziel?igsh=MmVha2dyNm9rOW9j" target="_blank" class="text-4xl text-slate-400 hover:text-pink-500 transition-all duration-300 transform hover:scale-110 hover:-translate-y-1" title="Instagram"><i class="fab fa-instagram"></i></a>
-            <!-- YouTube (Adicionado hover:-translate-y-1) -->
-            <a href="https://youtube.com/@ministeriouziel?si=k1t63Kqr67h3Xm5E" target="_blank" class="text-4xl text-slate-400 hover:text-red-600 transition-all duration-300 transform hover:scale-110 hover:-translate-y-1" title="YouTube"><i class="fab fa-youtube"></i></a>
-            <!-- Facebook (Adicionado hover:-translate-y-1) -->
-            <a href="https://www.facebook.com/share/1AWxqDPciq/" target="_blank" class="text-4xl text-slate-400 hover:text-blue-600 transition-all duration-300 transform hover:scale-110 hover:-translate-y-1" title="Facebook"><i class="fab fa-facebook"></i></a>
-            <!-- TikTok (Adicionado hover:-translate-y-1) -->
-            <a href="https://www.tiktok.com/@ministeriouziel?_t=8nrksX0puQI&_r=1" target="_blank" class="text-4xl text-slate-400 hover:text-black transition-all duration-300 transform hover:scale-110 hover:-translate-y-1" title="TikTok"><i class="fab fa-tiktok"></i></a>
-        </div>
-    </div>
-</section>
+                <h2 class="text-4xl md:text-5xl font-bold text-brand-text mb-4">Entre em Contato</h2>
+                <p class="text-xl text-slate-500 mb-12 max-w-3xl mx-auto">
+                    Gostaria de nos levar para sua paróquia, evento ou grupo de oração? Fale conosco!
+                </p>
+
+                <!-- Botões de Contato Direto -->
+                <div class="flex flex-col sm:flex-row justify-center items-center gap-6 mb-16">
+                    <!-- Botão WhatsApp -->
+                    <a href="https://wa.me/556796884226" target="_blank" 
+                       class="inline-flex items-center justify-center gap-3 bg-green-500 text-white text-lg font-semibold px-8 py-3 rounded-lg hover:bg-green-600 transition-all duration-300 shadow-lg transform hover:scale-105 w-full sm:w-auto">
+                        <i class="fab fa-whatsapp fa-lg"></i> Chamar no WhatsApp
+                    </a>
+                    <!-- Botão Email -->
+                    <a href="https://mail.google.com/mail/u/0/?view=cm&fs=1&to=ministeriouzielfc@gmail.com"
+                        target="_blank" 
+                        class="inline-flex items-center justify-center gap-3 bg-brand-blue text-white text-lg font-semibold px-8 py-3 rounded-lg hover:bg-brand-dark-blue transition-all duration-300 shadow-lg transform hover:scale-105 w-full sm:w-auto">
+                        
+                            <i class="fas fa-envelope fa-lg"></i> Enviar E-mail
+                        </a>
+                </div>
+
+                <!-- Divisor e Redes Sociais -->
+                <p class="text-lg text-slate-500 mb-10">...ou acompanhe nossa jornada nas redes sociais:</p>
+
+                <div class="flex flex-wrap justify-center items-center gap-6 md:gap-10 max-w-2xl mx-auto">
+                    <!-- Spotify (Adicionado hover:-translate-y-1) -->
+                    <a href="https://open.spotify.com/user/31g7w3m744kda4o4ql5cyzvq3zba" target="_blank" class="text-4xl text-slate-400 hover:text-green-500 transition-all duration-300 transform hover:scale-110 hover:-translate-y-1" title="Spotify"><i class="fab fa-spotify"></i></a>
+                    <!-- Instagram (Adicionado hover:-translate-y-1) -->
+                    <a href="https://www.instagram.com/oministeriouziel?igsh=MmVha2dyNm9rOW9j" target="_blank" class="text-4xl text-slate-400 hover:text-pink-500 transition-all duration-300 transform hover:scale-110 hover:-translate-y-1" title="Instagram"><i class="fab fa-instagram"></i></a>
+                    <!-- YouTube (Adicionado hover:-translate-y-1) -->
+                    <a href="https://youtube.com/@ministeriouziel?si=k1t63Kqr67h3Xm5E" target="_blank" class="text-4xl text-slate-400 hover:text-red-600 transition-all duration-300 transform hover:scale-110 hover:-translate-y-1" title="YouTube"><i class="fab fa-youtube"></i></a>
+                    <!-- Facebook (Adicionado hover:-translate-y-1) -->
+                    <a href="https://www.facebook.com/share/1AWxqDPciq/" target="_blank" class="text-4xl text-slate-400 hover:text-blue-600 transition-all duration-300 transform hover:scale-110 hover:-translate-y-1" title="Facebook"><i class="fab fa-facebook"></i></a>
+                    <!-- TikTok (Adicionado hover:-translate-y-1) -->
+                    <a href="https://www.tiktok.com/@ministeriouziel?_t=8nrksX0puQI&_r=1" target="_blank" class="text-4xl text-slate-400 hover:text-black transition-all duration-300 transform hover:scale-110 hover:-translate-y-1" title="TikTok"><i class="fab fa-tiktok"></i></a>
+                </div>
+            </div>
+        </section>
     </main>
     
     <!-- Footer -->
